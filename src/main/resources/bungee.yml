@@ -1,0 +1,4 @@
+name: DTTickets
+version: ${project.version}
+main: ru.buseso.dreamtime.dttickets.DTTickets
+description: Simple tickets

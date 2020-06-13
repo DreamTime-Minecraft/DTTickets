@@ -1,0 +1,4 @@
+name: DTTickets
+version: 1.0-SNAPSHOT
+main: ru.buseso.dreamtime.dttickets.DTTickets
+description: Simple tickets
