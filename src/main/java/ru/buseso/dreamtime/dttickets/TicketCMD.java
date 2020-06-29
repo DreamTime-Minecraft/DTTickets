@@ -17,7 +17,14 @@ public class TicketCMD extends Command {
         if (sender instanceof ProxiedPlayer) {
             ProxiedPlayer p = (ProxiedPlayer)sender;
             if (args.length == 0) {
-                p.sendMessage(TextComponent.fromLegacyText(DTTickets.Prefix + "/ticket create <почта> <пароль>"));
+                p.sendMessage(TextComponent.fromLegacyText(DTTickets.Prefix +
+                        "/ticket create <почта> <пароль> - создать аккаунт в тикетах"));
+                p.sendMessage(TextComponent.fromLegacyText(DTTickets.Prefix +
+                        "/ticket recovery - восстановить пароль от тикетов"));
+                if(p.hasPermission("dttickets.admin")) {
+                    p.sendMessage(TextComponent.fromLegacyText(DTTickets.Prefix +
+                            "/ticket admin <ник> - восстановить пароль от тикетов"));
+                }
             } else if (args[0].equalsIgnoreCase("create")) {
                 if (!TicketManager.hasAccount(p.getUniqueId().toString())) {
                     if (args.length == 3) {

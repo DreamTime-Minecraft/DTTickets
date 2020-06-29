@@ -34,9 +34,12 @@ public class MySQLConnect {
     }
 
     public void reconnect() {
-        if(con == null) {
-            connect();
-        }
+        try {
+            if (con == null || !con.isValid(10)) {
+                if(con != null) con.close();
+                connect();
+            }
+        }catch(Exception e) { }
     }
 
     public void close() {

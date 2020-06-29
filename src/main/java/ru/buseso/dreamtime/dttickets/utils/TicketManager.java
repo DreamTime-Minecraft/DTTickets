@@ -19,7 +19,7 @@ public class TicketManager {
 
     public static boolean hasAccountByName(String Name) {
         try {
-            ResultSet rs = DTTickets.mysql.query("SELECT * FROM accounts WHERE `NAME`='" + Name + "'");
+            ResultSet rs = DTTickets.mysql.query("SELECT * FROM accounts WHERE `USERNAME`='" + Name + "'");
             if (rs.next()) {
                 return (rs.getString("UUID") != null);
             }
@@ -39,7 +39,7 @@ public class TicketManager {
     }
 
     public static void updateName(String UUID, String Name) {
-        DTTickets.mysql.update("UPDATE accounts SET `NAME`='" + Name + "' WHERE `UUID`='" + UUID + "'");
+        DTTickets.mysql.update("UPDATE accounts SET `USERNAME`='" + Name + "' WHERE `UUID`='" + UUID + "'");
     }
 
     public static void updatePassword(String UUID, String Password) {
@@ -47,6 +47,6 @@ public class TicketManager {
     }
 
     public static void updateOtherPassword(String Name, String Password) {
-        DTTickets.mysql.update("UPDATE accounts SET `PASSWORD`='" + Password + "' WHERE `NAME`='" + Name + "'");
+        DTTickets.mysql.update("UPDATE accounts SET `PASSWORD`='" + Password + "' WHERE `USERNAME`='" + Name + "'");
     }
 }
